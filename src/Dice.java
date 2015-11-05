@@ -5,23 +5,27 @@ import java.util.Random;
 
 public class Dice
 {
-	private int iValue = 0, iBounces = 1;
+	private int iValue = 0, iBounces;
 	
+	public Dice ()
+	{
+		iBounces = 1;
+	}
 	public Dice(int bounces)
 	{
 		iBounces = bounces;
 	}
+	
+	public static int OneThrow()
+	{
+		Random rand = new Random();
+		return rand.nextInt(6) + 1;
+	}
 
 	public int Throw()
 	{
-		Random rand = new Random();
-
-		for (int i = 1; i < iBounces + 1; i++)
-		{
-			iValue = iValue + rand.nextInt(6) + 1;
-		}
-
-		iValue = iValue / iBounces;
+		Dice dice = new Dice();
+		iValue = dice.Throw(iBounces);
 		
 		return iValue;
 	}
