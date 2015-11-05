@@ -3,19 +3,20 @@
 
 import javax.swing.JOptionPane;
 
-public class Week11_Lab1
+public class Week11_Lab2
 {
 
 	public static void main(String[] args)
 	{
-		int iGuess, iRoll, iChoice;
+		int iGuess, iRoll, iChoice, iBounces;
 
 		Dice dice = new Dice();
-		
+
 		do
 		{
-			iRoll = dice.Throw();
 			iGuess = Integer.parseInt(JOptionPane.showInputDialog("Enter your guess: "));
+			iBounces = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of bounces: "));
+			iRoll = dice.Throw(iBounces);
 
 			while ((iGuess < 1) || (iGuess > 6))
 			{
